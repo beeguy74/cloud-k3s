@@ -2,6 +2,26 @@
 - name: Bootstrap K3s Cluster and Deploy Hello World
   hosts: masters
   become: yes # Выполнять команды через sudo внутри виртуалки
+  gather_facts: false
+
+  pre_tasks:
+    - name: Check if python3.9+ is available
+      raw: test -e /usr/bin/python3.9
+      register: python_check
+      changed_when: false
+      failed_when: false
+
+    - name: Install python3.9 if missing
+      raw: apt-get update && apt-get install -y python3.9
+      when: python_check.rc != 0   # only runs if python3.9 is absent
+
+    - name: Set interpreter to python3.9
+      set_fact:
+        ansible_python_interpreter: /usr/bin/python3.9
+
+    - name: Now gather facts properly
+      setup:                   # explicitly calls the setup module now that Python 
+
   tasks:
 
     # --- 1. Установка Kubernetes (K3s) ---
