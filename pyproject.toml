@@ -1,9 +1,9 @@
 [project]
 name = "cloud"
 version = "0.1.0"
-description = "Add your description here"
+description = "Cloud-1: automated WordPress deployment with Ansible and Docker Compose"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "ansible>=13.3.0",
 ]
