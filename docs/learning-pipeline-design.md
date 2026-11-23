@@ -37,7 +37,7 @@ The learner writes the project code. Claude acts as tutor and reviewer: explains
 ## Decisions
 
 - **Stack:** Ansible + Docker Compose. k3s was dropped: the subject requires a `docker-compose.yml`, and k3s exposes extra ports (6443, 10250, 8472/udp, NodePorts) that conflict with "only 22/80/443".
-- **Branch:** work happens on `compose`.
+- **Branch:** work happens on `main`.
 - **Targets:** OVH Public Cloud instances (Ubuntu 22.04). No Vagrant. Local Docker is used for quick, free networking and Compose experiments.
 - **Controller:** this machine, with Ansible pinned in `pyproject.toml` and run as `uv run ansible-playbook ...`.
 - **Who runs what:** the learner runs every command that creates, changes or deletes cloud resources. Claude writes those commands and only runs read-only checks (for example `openstack server list`).
