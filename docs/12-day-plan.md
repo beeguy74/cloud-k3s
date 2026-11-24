@@ -1,13 +1,13 @@
 # Cloud-1: 12-day study and build plan
 
-Written Mon 2026-11-23. Replaces the pacing in [`learning-pipeline-design.md`](learning-pipeline-design.md); requirements come from [`subject-checklist.md`](subject-checklist.md) and the subject PDF.
+Written Mon 2026-11-23; Day 1 moved to Tue 2026-11-24. Replaces the pacing in [`learning-pipeline-design.md`](learning-pipeline-design.md); requirements come from [`subject-checklist.md`](subject-checklist.md) and the subject PDF.
 
 ## Assumptions (correct these first)
 
 | Assumption | Value | If wrong |
 |---|---|---|
-| Evaluation date | On or right after Sat 2026-12-05 | Earlier eval: apply the cut list now |
-| Working days | Mon–Sat, Sunday 29 Nov off | Working Sunday gives one more buffer session |
+| Evaluation date | Self-planned: Day 11 rehearsal on Sat 5 Dec, Day 12 buffer on Mon 7 Dec | Earlier eval: apply the cut list now |
+| Working days | Mon–Sat, Sundays 29 Nov and 6 Dec off | Working Sunday gives one more buffer session |
 | Session length | 2 h | Shorter: cut list items 1–5 apply from Day 1 |
 | Sessions | 11 working (Days 1–11) + Day 12 as buffer or eval day | Total 22 h planned, 24 h maximum |
 | Cloud account | You can log into the OVH account as root/owner with your own email | **Blocker, check on Day 1.** The subject stops the defense otherwise |
@@ -52,7 +52,7 @@ Rules that hold every day:
 
 ---
 
-### Day 1 — Mon 2026-11-23
+### Day 1 — Tue 2026-11-24
 
 - **Goal:** Clear every blocker and reach a fresh instance with Ansible.
 - **Learn:**
@@ -73,7 +73,7 @@ Rules that hold every day:
   3. Why is the real inventory not in the repository?
 - **Time split:** 30 min blockers / 25 min learn / 50 min build / 15 min create and delete.
 
-### Day 2 — Tue 2026-11-24
+### Day 2 — Wed 2026-11-25
 
 - **Goal:** Write a first playbook and understand idempotency.
 - **Learn:**
@@ -93,7 +93,7 @@ Rules that hold every day:
   3. What can go wrong with apt on a just-booted cloud instance?
 - **Time split:** 35 min learn / 70 min build / 15 min create and delete.
 
-### Day 3 — Wed 2026-11-25
+### Day 3 — Thu 2026-11-26
 
 - **Goal:** Move to roles and close the host firewall to 22/80/443.
 - **Learn:**
@@ -114,7 +114,7 @@ Rules that hold every day:
   3. When does a handler run, and how often?
 - **Time split:** 35 min learn / 70 min build / 15 min create and delete.
 
-### Day 4 — Thu 2026-11-26
+### Day 4 — Fri 2026-11-27
 
 - **Goal:** Install Docker Engine by role and prove how Docker interacts with ufw.
 - **Learn:**
@@ -137,7 +137,7 @@ Rules that hold every day:
   3. Why docker-ce from Docker's repo and not `docker.io`?
 - **Time split:** 25 min learn / 50 min build / 30 min lab / 15 min create and delete.
 
-### Day 5 — Fri 2026-11-27
+### Day 5 — Sat 2026-11-28
 
 - **Goal:** Create the vault and get MariaDB, WordPress (php-fpm) and nginx working locally over HTTP.
 - **No cloud instance today.** All work is on local Docker.
@@ -164,7 +164,7 @@ Rules that hold every day:
 - **Time split:** 30 min learn / 85 min build / 5 min notes.
 - **Tip:** the FastCGI `SCRIPT_FILENAME` must be the path as seen inside the php-fpm container.
 
-### Day 6 — Sat 2026-11-28
+### Day 6 — Mon 2026-11-30
 
 - **Goal:** Deploy the stack to a fresh instance with one playbook run.
 - **Learn:**
@@ -184,7 +184,7 @@ Rules that hold every day:
   3. What does `no_log` protect, and from whom?
 - **Time split:** 20 min learn / 80 min build / 20 min create, reboot test and delete.
 
-## Week 1 checkpoint (end of Sat 28 Nov)
+## Week 1 checkpoint (end of Day 6, Mon 30 Nov)
 
 Must be true:
 
@@ -198,10 +198,10 @@ Must be true:
 | If this is missing | Then |
 |---|---|
 | One box | Fix it in the first 30 min of Day 7 and apply cuts 1–4 |
-| Two or more boxes | Use Day 7 to finish week 1. Apply cuts 1–7, merge Day 7 into Day 8, and use Sunday 29 Nov or Day 12 as a work session |
+| Two or more boxes | Use Day 7 to finish week 1. Apply cuts 1–7, merge Day 7 into Day 8, and use Sunday 6 Dec or Day 12 as a work session |
 | No deploy on a fresh instance at all | Apply cuts 1–9 (self-signed TLS). Days 7–9 become: deploy, phpMyAdmin + routing, TLS + two hosts |
 
-### Day 7 — Mon 2026-11-30
+### Day 7 — Tue 2026-12-01
 
 - **Goal:** Add phpMyAdmin, route by URL, and install WordPress without the browser wizard.
 - **Learn:**
@@ -224,7 +224,7 @@ Must be true:
 - **Time split:** 25 min learn / 80 min build / 15 min create and delete.
 - **Tip:** the `wordpress:cli` image runs as a different user ID than the php-fpm image. Read the "WP-CLI" part of the [wordpress image page](https://hub.docker.com/_/wordpress) before debugging permissions.
 
-### Day 8 — Tue 2026-12-01
+### Day 8 — Wed 2026-12-02
 
 - **Goal:** Serve the site over HTTPS on the DuckDNS name with a staging certificate.
 - **Learn:**
@@ -251,7 +251,7 @@ Must be true:
 - **Time split:** 30 min learn / 75 min build / 15 min create and delete.
 - **If issuance fails twice:** stop retrying (failed validations are rate-limited too), read the certbot log, and finish the nginx TLS config with a temporary self-signed certificate.
 
-### Day 9 — Wed 2026-12-02
+### Day 9 — Thu 2026-12-03
 
 - **Goal:** Prove persistence, portability and parallel deployment on two hosts.
 - **Learn:**
@@ -273,7 +273,7 @@ Must be true:
   3. What would you change to deploy a third server?
 - **Time split:** 20 min learn / 80 min build and test / 20 min create and delete two instances.
 
-### Day 10 — Thu 2026-12-03
+### Day 10 — Fri 2026-12-04
 
 - **Goal:** Write the README and run the first full rehearsal with production certificates.
 - **Learn:**
@@ -295,7 +295,7 @@ Must be true:
 - **Time split:** 15 min learn / 45 min README / 45 min rehearsal / 15 min delete.
 - **Certificate budget:** from today, at most one production issuance per domain per day.
 
-### Day 11 — Fri 2026-12-04
+### Day 11 — Sat 2026-12-05
 
 - **Goal:** Pass a timed defense rehearsal against every checklist item, from zero.
 - **Learn:** nothing new. Claude plays the evaluator.
@@ -327,7 +327,7 @@ Must be true:
   3. What is not production-ready here, and what would you do next?
 - **Time split:** 70 min rehearsal / 35 min fixes and questions / 15 min delete.
 
-### Day 12 — Sat 2026-12-05
+### Day 12 — Mon 2026-12-07
 
 - **Goal:** Buffer session, or evaluation day.
 - **Learn:** re-read your own README and the defense questions of Days 1–11.
